@@ -1,0 +1,48 @@
+/* unvisited link */
+span {
+  color: blue;
+}
+
+/* visited link */
+span:visited {
+  color: purple;
+}
+
+/* mouse over link */
+span:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* selected link */
+span:active {
+  color: goldenrod;
+}
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    width: 100%;
+}
+
+.form {
+    
+    position: absolute;
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+h1{
+  color: darkblue;
+  font-family: arial, sans-serif;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: bold;
+  position:absolute; 
+  left:30%;
+  top:2%;
+}
