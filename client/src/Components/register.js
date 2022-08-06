@@ -1,26 +1,52 @@
-import React, { Component, createRef, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useRef, Component, createRef, useEffect, useState } from "react";
+import axios from "axios";
+import { Link, BrowserRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
+import Forgot from "./forgotPassword";
+import Landing from "./landing";
+import "./loginForm.css";
+import history from '../history';
 import Field from './field';
+import { browserHistory } from 'react-router';
+//Imports sufficent libaries. 
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { link } from '@mui/material/Link';
+import { Alert, Typography } from "@mui/material";
+import { useContext } from "react";
+import { useLocation, useNavigate, useHistory } from "react-router";
+import { Navigate, Outlet } from "react-router-dom";
+import { UserContext } from "../App";
+import { render } from "react-dom";
 
 
-function register({ onSubmit }) {
-    let nameRef = createRef();
-    let emailRef = createRef();
-    let usernameRef = createRef();
-    let passwordRef = createRef();
 
+function Register(props) {
+    const errRef = useRef();
+    // const { account, setAccount } = useContext(UserContext);
+    //const navigate = useNavigate();
+    //  const location = useLocation();
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [errMsg, setErrMsg] = useState('');
+    const [success, setSuccess] = useState(false);
+    const [user, setUser] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: '',
+    });
     const formStyle = {
         margin: 'auto',
         padding: '10px',
         border: '1px solid #c9c9c9',
         borderRadius: '5px',
         background: '#f5f5f5',
-        position: 'absolute',
-        overflow: 'auto',
-        top: '40%',
-        left: '50%',
-        transform: 'translate(-50 %, -50 %)',
         width: '220px',
         display: 'block'
     };
@@ -36,18 +62,73 @@ function register({ onSubmit }) {
         color: 'white',
         display: 'block'
     };
-
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        const data = {
-            myname: nameRef.current.value,
-            email: emailRef.current.value,
-            username: usernameRef.current.value,
-            password: passwordRef.current.value
-        };
-        onSubmit(data);
+    //axios.defaults.withCredentials = true;
+    const handleChangeFirstname = (event) => {
+        setFirstname(event.target.value);
     };
+    //axios.defaults.withCredentials = true;
+    const handleChangeLastname = (event) => {
+        setLastname(event.target.value);
+    };
+
+    const handleChangeEmail = (event) => {
+        setEmail(event.target.value);
+    };
+
+    //axios.defaults.withCredentials = true;
+    const handleChangeUsername = (event) => {
+        setUsername(event.target.value);
+    };
+
+    const handleChangePassword = (event) => {
+        setPassword(event.target.value);
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            username: username,
+            password: password
+        };
+        axios.post("http://localhost:3001/signup", userData)
+            .then(function (response) {
+                console.log('Turtle tester who is getting fired Thurday',response.data);
+                alert('Please check your email to verify your account');
+                //window.location.replace("http://localhost:3000/verification/");
+                return response.data;
+            })
+
+            .catch((error) => {
+                if (error.response) {
+                    console.log(error.response);
+                    console.log("server responded");
+                } else if (error.request) {
+                    console.log("network error");
+                } else {
+                    console.log(error);
+                }
+            });
+    }
+    const labelStyle = {
+        margin: '10px 0 5px 0',
+        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontSize: '15px',
+    };
+
+    const inputStyle = {
+        margin: '5px 0 10px 0',
+        padding: '5px',
+        border: '1px solid #bfbfbf',
+        borderRadius: '3px',
+        boxSizing: 'border-box',
+        width: '100%'
+    };
+    function isEmptyObject(obj) {
+        return !Object.keys(obj).length;
+    }
+
     return (
         <div className="register">
             <div>
@@ -55,10 +136,43 @@ function register({ onSubmit }) {
             </div>
             <div>
                 <form style={formStyle} onSubmit={handleSubmit} >
-                    <Field ref={nameRef} label="Name:" type="text" />
-                    <Field ref={emailRef} label="Email:" type="text" />
-                    <Field ref={usernameRef} label="Username:" type="text" />
-                    <Field ref={passwordRef} label="Password:" type="password" />
+                    <label style={labelStyle} htmlFor="firstname">First Name: </label>
+
+                    <input style={inputStyle}
+                        type="text"
+                        value={firstname}
+                        placeholder="enter a name"
+                        onChange={handleChangeFirstname} />
+                    <label style={labelStyle} htmlFor="lastname">Last Name: </label>
+
+                    <input style={inputStyle}
+                        type="text"
+                        value={lastname}
+                        placeholder="enter a name"
+                        onChange={handleChangeLastname} />
+                    <label style={labelStyle} htmlFor="email">Email: </label>
+                    <input style={inputStyle}
+                        type="email"
+                        value={email}
+                        placeholder="enter an email"
+                        onChange={handleChangeEmail} />
+
+                    <label style={labelStyle} htmlFor="username">Username: </label>
+
+                    <input style={inputStyle}
+                        type="text"
+                        value={username}
+                        placeholder="enter a username"
+                        onChange={handleChangeUsername} />
+                    <label style={labelStyle} htmlFor="password">Password: </label>
+                    <input style={inputStyle}
+                        type="password"
+                        value={password}
+                        placeholder="enter a password"
+                        onChange={handleChangePassword} />
+
+
+
                     <div>
                         <button style={submitStyle} type="submit">Submit</button>
                     </div>
@@ -69,4 +183,4 @@ function register({ onSubmit }) {
     );
 };
 
-export default register;
+export default Register;

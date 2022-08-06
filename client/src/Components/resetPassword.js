@@ -21,14 +21,24 @@ import { render } from "react-dom";
 
 
 
-function ForgotPassword(props) {
+function ResetPassword(props) {
 
     let emailRef = createRef();
-    const [email, setEmail] = useState("");
-    const handleChangeEmail = (event) => {
-        setEmail(event.target.value);
+    const [newpassword, setNewPassword] = useState("");
+    const [confirmpassword, setConfirmPassword] = useState("");
+    const handleChangeNewPassword = (event) => {
+        setNewPassword(event.target.value);
     };
 
+    const handleChangeConfirmPassword = (event) => {
+        setConfirmPassword(event.target.value);
+    };
+
+    const [user, setUser] = useState({
+
+        newpassword: '',
+        confirmpassword: '',
+    });
     const formStyle = {
         margin: 'auto',
         padding: '10px',
@@ -65,18 +75,34 @@ function ForgotPassword(props) {
         boxSizing: 'border-box',
         width: '100%'
     };
-    const handleSubmit = e => {
-        e.preventDefault();
 
+    const test = () => {
+        console.log('new', newpassword);
+        console.log('confirm', confirmpassword);
+        if (newpassword !== confirmpassword){
+            alert('Passwords do not match');
+        } else {
+            alert('Password updated successfully');
+            window.location.replace("http://localhost:3000/");
+        }
+    }
+
+    const handleSubmit = e => {
+
+        e.preventDefault();
+        test();
         const userData = {
 
-            email: email,
+
+            newpassword: newpassword,
+            confirmpassword: confirmpassword,
 
         };
-        axios.post("http://localhost:3001/forgot", userData)
+
+        axios.post("http://localhost:3001/reset", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday', response.data);
-                window.location.replace("http://localhost:3000/verifyforgot");
+                window.location.replace("http://localhost:3000/");
                 return response.data;
             })
 
@@ -93,22 +119,29 @@ function ForgotPassword(props) {
     };
     return (
 
-        <div className="Forgot">
+        <div className="ResetPassword">
             <div>
-                <h1>Please enter the email <br></br>associated with your account.</h1>
+                <h1>Please enter the a new password <br></br>associated with your account.</h1>
             </div>
             <div>
 
                 <form style={formStyle} onSubmit={handleSubmit} >
 
-                    <label style={labelStyle} htmlFor="email">Email: </label>
+                    <label style={labelStyle} htmlFor="newpassword">New Password: </label>
                     <input style={inputStyle}
-                        type="email"
-                        value={email}
-                        placeholder="enter an email"
-                        onChange={handleChangeEmail} />
+                        type="password"
+                        value={newpassword}
+                        placeholder="enter a new password"
+                        onChange={handleChangeNewPassword} />
+                    <label style={labelStyle} htmlFor="confirmpassword">Confirm Password: </label>
+                    <input style={inputStyle}
+                        type="password"
+                        value={confirmpassword}
+                        placeholder="enter a confirm password"
+                        onChange={handleChangeConfirmPassword} />
 
-                   
+
+
                     <button style={submitStyle} type="submit">Submit</button>
 
                 </form>
@@ -117,4 +150,4 @@ function ForgotPassword(props) {
     );
 };
 
-export default ForgotPassword;
+export default ResetPassword;

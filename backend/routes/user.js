@@ -11,9 +11,10 @@ var verify = Math.floor((Math.random() * 10000000) + 1);
 
 var transporter = nodemailer.createTransport({
    service: 'gmail',
-   auth: {
+  
+ auth: {
       user: 'dylanrychlik@gmail.com',
-      pass: 'Drychthejavacoder!4883'
+      pass: 'ekrxgvynsmfccjcv'
    }
 });
 // cookie parser
@@ -25,7 +26,7 @@ app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
-   res.render('index.ejs');
+   //res.render('index.ejs');
 });
 
 
@@ -107,13 +108,15 @@ exports.signup = function (req, res) {
          to: `${req.body.email}`, // receiver email2
          subject: "Account Verification",
          html: `<h1>Hello Friend Please Click on this link to verify your account<h1><br><hr>
-      <br><a href="https://simple-login-app-dylan-rychlik.herokuapp.com/verification/?verify=${verify}">CLICK ME TO ACTIVATE YOUR ACCOUNT</a>`
+      <br><a href="http://localhost:3000/verification/?verify=${verify}">CLICK ME TO ACTIVATE YOUR ACCOUNT</a>`
       }
+   
       var post = req.body;
-      var name = post.user_name;
+      var name = post.username;
       var pass = post.password;
-      var fname = post.first_name;
-      var lname = post.last_name;
+      var fname = post.firstname;
+      var lname = post.lastname;
+      console.log('Turtle tester who is getting fired tomorrow',req.body);
        email = post.email;
        var sqlText = "INSERT INTO uzaqleuw_Simpledatabase.Accounts(ID, FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('','" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');";
       //var verification = post.verify;
@@ -152,10 +155,10 @@ exports.forgot = function (req, res) {
 console.log('req.body:',req.body);
     var mailOption = {
       from: 'dylanrychlik@gmail.com', // sender this is your email here
-      to: `${req.body.user_name}`, // receiver email2
+      to: `${req.body.email}`, // receiver email2
       subject: "Forgot Password",
       html: `<h1Please Click on this link to reset your password
-         <br><a href="https://simple-login-app-dylan-rychlik.herokuapp.com/reset">CLICK ME TO RESET YOUR PASSWORD</a>`
+         <br><a href="http://localhost:3000/reset">CLICK ME TO RESET YOUR PASSWORD</a>`
 
 
    }
@@ -174,7 +177,7 @@ console.log('req.body:',req.body);
  
  }
    else {
-      res.render('index');
+     // res.render('index');
     
    }
 
@@ -201,8 +204,9 @@ exports.reset = function (req, res) {
        });
 
       var post = req.body;
+      console.log('Turtle tester who is getting fired',req.body);
 
-      var pass = post.password;
+      var pass = post.confirmpassword;
 
       var email = 'dylanrychlik@gmail.com';
       let userdata = {
@@ -227,7 +231,7 @@ exports.reset = function (req, res) {
 
             console.log(email);
             console.log(pass);
-            res.render('index');
+           // res.render('index');
          }
          });
        });
@@ -250,7 +254,7 @@ exports.reset = function (req, res) {
 
 
    } else {
-      res.render('reset');
+      //res.render('reset');
    }
 
 }
@@ -282,7 +286,7 @@ exports.login = function (req, res) {
             }
             else {
                console.log('Successfully connected to Snowflake.');
-               // Optional: store the connection ID.
+                // Optional: store the connection ID.
                //connection_ID = conn.getId();
             }
          }
@@ -299,8 +303,10 @@ exports.login = function (req, res) {
             console.log('Turtle result',result);
             if (result <= 1) {
                 console.error('Invalid username or password');
+                res.json('Invalid username or password');
               // res.render('index.ejs', { message: message });
             } else {
+               res.json('login successful');
                console.error('login successful');
                
                userID = JSON.stringify(result[0].ID);
@@ -313,7 +319,7 @@ exports.login = function (req, res) {
        
    }
    else {
-      res.render('index.ejs', { message: message });
+      //res.render('index.ejs', { message: message });
    }
 
 };
@@ -326,7 +332,7 @@ exports.dashboard = function (req, res, next) {
  
    console.log('ddd=' + userID);
    if (userID == null) {
-      res.redirect("/login");
+     // res.redirect("/login");
       return;
    }
    var connection = mysql.createConnection({
@@ -356,7 +362,7 @@ exports.dashboard = function (req, res, next) {
          }
          else {
 
-            res.render('dashboard.ejs');
+          //  res.render('dashboard.ejs');
          }
       });
 };
