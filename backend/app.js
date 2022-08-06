@@ -68,8 +68,7 @@ app.set('port', PORT);
 
 
 app.use(express.static('public'))
-
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use(session({
   secret: 'keyboard cat',
   resave: false,

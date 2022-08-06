@@ -20,9 +20,10 @@
     "serve": "^11.3.2",
     "snowflake-sdk": "^1.5.3"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "script": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+},
   "author": "",
   "license": "ISC"
 }
