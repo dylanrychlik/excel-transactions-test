@@ -99,13 +99,13 @@ function Form(props) {
             username: username,
             password: password
         };
-        axios.post("http://localhost:3001/login", userData)
+        axios.post("https://excel-transaction-test.herokuapp.com/login", userData)
             .then(function (response) {
 
                 console.log('Authentication data.' + response.data);
                 if (response.data === 'login successful') {
                     alert('login successful');
-                    window.location.replace("http://localhost:3000/landing");
+                    window.location.replace("https://excel-transaction-test.herokuapp.com/landing");
                 
                 } else if (response.data === 'Invalid username or password') {
                     alert('Invalid username or password.');
