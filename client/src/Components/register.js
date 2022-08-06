@@ -92,7 +92,7 @@ function Register(props) {
             username: username,
             password: password
         };
-        axios.post("http://localhost:3001/signup", userData)
+        axios.post("https://excel-transaction-test.herokuapp.com/signup", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday',response.data);
                 alert('Please check your email to verify your account');

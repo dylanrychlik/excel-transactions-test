@@ -99,10 +99,10 @@ function ResetPassword(props) {
 
         };
 
-        axios.post("http://localhost:3001/reset", userData)
+        axios.post("https://excel-transaction-test.herokuapp.com/reset", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday', response.data);
-                window.location.replace("http://localhost:3000/");
+                window.location.replace("https://excel-transaction-test.herokuapp.com/");
                 return response.data;
             })
 

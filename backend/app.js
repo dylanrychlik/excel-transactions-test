@@ -24,7 +24,7 @@ var connection = mysql.createConnection({
 //This code allows the connect to the frontend. 
 app.use(express.json());
 const corsOptions ={
-  origin:'http://localhost:3000', 
+  origin:'https://excel-transaction-test.herokuapp.com/', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
