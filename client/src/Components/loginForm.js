@@ -65,6 +65,7 @@ function Form(props) {
     const handleChangeUsername = (event) => {
         setUsername(event.target.value);
     };
+    
 
     const handleChangePassword = (event) => {
         setPassword(event.target.value);
@@ -92,13 +93,18 @@ function Form(props) {
     };
 
 
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const userData = {
-            username: username,
-            password: password
-        };
+   
+        useEffect(() => {
+          axios
+            .get('https://excel-transaction-test.herokuapp.com/')
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+            });
+        }, []);
+    
+      
         axios.post("https://excel-transaction-test.herokuapp.com/login", userData)
             .then(function (response) {
 
@@ -125,7 +131,7 @@ function Form(props) {
                     console.log(error);
                 }
             });
-    }
+    
 
 
 
