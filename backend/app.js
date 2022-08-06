@@ -93,6 +93,4 @@ app.get('/verification/', user.verify);
 //Middleware
 
 //Listen to app on port 3001. 
-app.listen(3001, () => {
-  console.log("running on port 3001");
-})
+app.listen(process.env.PORT || 5000)
