@@ -93,4 +93,5 @@ app.get('/verification/', user.verify);
 //Middleware
 
 //Listen to app on port 3001. 
-app.listen(process.env.PORT || 5000)
+//Listen to app on port 3001. 
+app.listen(PORT);
