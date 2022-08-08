@@ -95,7 +95,7 @@ function Form(props) {
 
    
         useEffect(() => {
-          axios.get("https://excel-transaction-test.herokuapp.com/")
+          axios.get("https://excel-transaction-test.herokuapp.com/login")
             .then((res) => {
               console.log(res);
             })

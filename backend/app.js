@@ -76,7 +76,7 @@ app.use(session({
   cookie: { maxAge: 60000 }
 }))
 
-app.get('/', routes.index);//call for main index page
+//app.get('/', routes.index);//call for main index page
 app.get('/signup', user.signup);//call for signup page
 app.post('/signup', user.signup);//call for signup post 
 app.get('/reset', user.reset);//call for signup page
