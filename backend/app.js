@@ -63,7 +63,7 @@ connection.connect(
 //global.db = connection;
 
 // all environments
-const PORT = process.env.PORT || '3001'
+const PORT = process.env.PORT || '8080'
 app.set('port', PORT);
 
 
