@@ -65,18 +65,23 @@ connection.connect(
 // all environments
 const PORT = process.env.PORT || '8080'
 app.set('port', PORT);
-
-
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static('public'))
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 60000 }
-}))
 
-//app.get('/', routes.index);//call for main index page
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+              secret: 'keyboard cat',
+              resave: false,
+              saveUninitialized: true,
+              cookie: { maxAge: 60000 }
+            }))
+ 
+// development only
+ 
+app.get('/', routes.index);//call for main index page
 app.get('/signup', user.signup);//call for signup page
 app.post('/signup', user.signup);//call for signup post 
 app.get('/reset', user.reset);//call for signup page
