@@ -61,34 +61,31 @@ connection.connect(
 
 //global.db = connection;
 
-// all environments
-const PORT = process.env.PORT || '3001'
-app.set('port', PORT);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static('../public'))
+
+app.use(express.static('public'))
+
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 60000 }
-}))
-
-// Define your routes here
-app.get('/register', user.signup);
-app.post('/register', user.signup);
-app.get('/reset', user.reset);
-app.post('/reset', user.reset);
-app.post('/forgot', user.forgot);
-app.get('/login', routes.index);
-app.post('/login', user.login);
-app.get('/home/dashboard', user.dashboard);
-app.get('/home/logout', user.logout);
-app.get('/home/profile', user.profile);
-app.post('/home/profile', user.editprofile);
+              secret: 'keyboard cat',
+              resave: false,
+              saveUninitialized: true,
+              cookie: { maxAge: 60000 }
+            }))
+ 
+// development only
+ 
+app.get('/', routes.index);//call for main index page
+app.get('/signup', user.signup);//call for signup page
+app.post('/signup', user.signup);//call for signup post 
+app.get('/reset', user.reset);//call for signup page
+app.post('/reset', user.reset);//call for signup page
+app.post('/forgot', user.forgot);//call for signup post 
+app.get('/login', routes.index);//call for login page
+app.post('/login', user.login);//call for login post
+app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
+app.get('/home/logout', user.logout);//call for logout
+app.get('/home/profile', user.profile);//to render users profile
+app.post('/home/profile', user.editprofile);//to render users profile
 app.get('/verification/', user.verify);
 
 // Listen to the app on the specified port
