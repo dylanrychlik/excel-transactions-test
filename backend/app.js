@@ -23,7 +23,7 @@ let bodyParser = require('body-parser');
 
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://login-validation-rychlik.onrender.com:3000',
+  origin: 'https://login-validation-rychlik.onrender.com',
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   optionSuccessStatus: 200
 };
