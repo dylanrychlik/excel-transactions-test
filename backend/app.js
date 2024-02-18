@@ -59,10 +59,15 @@ connection.connect(
   }
 );
 
-//global.db = connection;
+// all environments
+const PORT = process.env.PORT || '3001'
+// Serve static files from the React build directory
+app.use(express.static(path.join(__dirname, '../client')));
 
-
-app.use(express.static('public'))
+// Handle React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'));
+});
 
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
@@ -87,8 +92,9 @@ app.get('/home/logout', user.logout);//call for logout
 app.get('/home/profile', user.profile);//to render users profile
 app.post('/home/profile', user.editprofile);//to render users profile
 app.get('/verification/', user.verify);
+//Middleware
+//Middleware
 
-// Listen to the app on the specified port
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+//Listen to app on port 3001. 
+//Listen to app on port 3001. 
+app.listen(PORT);
