@@ -95,7 +95,7 @@ function Form(props) {
 
    
         useEffect(() => {
-          axios.get("http://login_validation_rychlik.com:3001/login")
+          axios.get("https://login-validation-rychlik.onrender.com:3001/login")
             .then((res) => {
               console.log(res);
             })
@@ -112,12 +112,12 @@ function Form(props) {
                   password: password
              };
     
-            axios.post("http://login_validation_rychlik.com:3001/login", user)
+            axios.post("https://http-login-validation-rychlik.onrender.com:3001/login", user)
                 .then(function (response) {
                     console.log('Authentication data: ', response.data);
                     if (response.data === 'login successful') {
                         alert('Login successful');
-                        window.location.replace("http://login_validation_rychlik.com:3000/landing");
+                        window.location.replace("https://http-login-validation-rychlik.onrender.com:3000/landing");
 
                         // Redirect or perform any necessary action upon successful login
                     } else if (response.data === 'Invalid username or password') {
