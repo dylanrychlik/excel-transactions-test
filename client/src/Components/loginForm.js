@@ -112,7 +112,7 @@ function Form(props) {
                   password: password
              };
     
-            axios.post("http://http-login-validation-rychlik:3306/login", user)
+            axios.post("https://http-login-validation-rychlik:3306/login", user)
                 .then(function (response) {
                     console.log('Authentication data: ', response.data);
                     if (response.data === 'login successful') {
