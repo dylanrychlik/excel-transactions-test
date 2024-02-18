@@ -82,8 +82,7 @@ function ResetPassword(props) {
         if (newpassword !== confirmpassword){
             alert('Passwords do not match');
         } else {
-            alert('Password updated successfully');
-            window.location.replace("http://localhost:3000/");
+            window.location.replace("http://login_validation_rychlik.com:3000/verifyforgot");
         }
     }
 
@@ -99,10 +98,10 @@ function ResetPassword(props) {
 
         };
 
-        axios.post("https://excel-transaction-test.herokuapp.com/reset", userData)
+        axios.post("http://login_validation_rychlik.com:3001/reset", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday', response.data);
-                window.location.replace("https://excel-transaction-test.herokuapp.com/");
+                window.location.replace("http://login_validation_rychlik.com:3000/");
                 return response.data;
             })
 

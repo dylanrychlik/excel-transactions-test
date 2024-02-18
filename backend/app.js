@@ -1,33 +1,32 @@
-const express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+const express = require('express');
+const routes = require('./routes');
+const user = require('./routes/user');
+const http = require('https'); // Note: Should this be 'http' instead of 'https'?
+const path = require('path');
 const cors = require('cors');
 const session = require('express-session');
 const app = express();
-const cookieParser = require("cookie-parser");
-
-
+const cookieParser = require('cookie-parser');
 
 const mysql = require('mysql');
-let bodyParser = require("body-parser");
+let bodyParser = require('body-parser');
 
+    //var verification = post.verification;
+    var connection = mysql.createConnection({
+      host: '50.6.160.15',
+      user: 'cwzxvqte_root',
+      password: 'Spiderman420!',
+      database: 'cwzxvqte_login_validation',
+      port: 3306,
 
-//This creates the connection to mysql database
-var connection = mysql.createConnection({
-  host: "cloud19.hostgator.com",
-  user: "uzaqleuw_root",
-  password: "3Hotdogs!"
-});
+    });
 
-//This code allows the connect to the frontend. 
 app.use(express.json());
-const corsOptions ={
-  origin:'https://excel-transaction-test.herokuapp.com/', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  optionSuccessStatus: 200
+};
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,10 +64,12 @@ connection.connect(
 // all environments
 const PORT = process.env.PORT || '3001'
 app.set('port', PORT);
-
-
-app.use(express.static('public'))
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static('../public'))
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
@@ -76,21 +77,21 @@ app.use(session({
   cookie: { maxAge: 60000 }
 }))
 
-//app.get('/', routes.index);//call for main index page
-app.get('/signup', user.signup);//call for signup page
-app.post('/signup', user.signup);//call for signup post 
-app.get('/reset', user.reset);//call for signup page
-app.post('/reset', user.reset);//call for signup page
-app.post('/forgot', user.forgot);//call for signup post 
-app.get('/login', routes.index);//call for login page
-app.post('/login', user.login);//call for login post
-app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
-app.get('/home/logout', user.logout);//call for logout
-app.get('/home/profile', user.profile);//to render users profile
-app.post('/home/profile', user.editprofile);//to render users profile
+// Define your routes here
+app.get('/register', user.signup);
+app.post('/register', user.signup);
+app.get('/reset', user.reset);
+app.post('/reset', user.reset);
+app.post('/forgot', user.forgot);
+app.get('/login', routes.index);
+app.post('/login', user.login);
+app.get('/home/dashboard', user.dashboard);
+app.get('/home/logout', user.logout);
+app.get('/home/profile', user.profile);
+app.post('/home/profile', user.editprofile);
 app.get('/verification/', user.verify);
-//Middleware
-//Middleware
 
-//Listen to app on port 3001. 
-app.listen(process.env.PORT || 5000)
+// Listen to the app on the specified port
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

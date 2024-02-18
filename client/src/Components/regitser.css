@@ -3,7 +3,7 @@ body,
 #root,
 .App {
     text-align: center;
-    background-color:#50b397;
+    background-color:#FFDAB9;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

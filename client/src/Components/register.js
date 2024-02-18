@@ -92,11 +92,11 @@ function Register(props) {
             username: username,
             password: password
         };
-        axios.post("https://excel-transaction-test.herokuapp.com/signup", userData)
+        axios.post("http://login_validation_rychlik.com:3001/register", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday',response.data);
                 alert('Please check your email to verify your account');
-                //window.location.replace("http://localhost:3000/verification/");
+                window.location.replace("http://login_validation_rychlik.com:3000");
                 return response.data;
             })
 
@@ -104,6 +104,7 @@ function Register(props) {
                 if (error.response) {
                     console.log(error.response);
                     console.log("server responded");
+                    console.log("Test",userData);
                 } else if (error.request) {
                     console.log("network error");
                 } else {

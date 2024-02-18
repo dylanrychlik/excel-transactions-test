@@ -30,10 +30,9 @@ function VerifyEmail({ onSubmit }) {
           email: email,
 
         };
-        axios.get("http://localhost:3001/verification/", userData)
+        axios.get("http://login_validation_rychlik.com:3001/verification/", userData)
         .then(function (response) {
-           alert(response.data);
-           window.location.replace("http://localhost:3000/");
+            window.location.replace("http://login_validation_rychlik.com:3000/verifyaccount");
             return response.data;
         })
 

@@ -5,6 +5,7 @@ import Forgot from './Components/forgotPassword';
 import Landing from './Components/landing';
 import Verifyemail from './Components/verifyEmail';
 import Verifyforgot from './Components/verifyForgot';
+import Verifyaccount from './Components/verifyAccount';
 import Text from './Components/text';
 import Reset from './Components/resetPassword';
 import ReactDOM from "react-dom";
@@ -35,6 +36,8 @@ function App() {
           <Route exact path="/landing" element={<Landing />}/>
           <Route exact path="/verification/" element={<Verifyemail />}/>
           <Route exact path="/verifyforgot" element={<Verifyforgot />}/>
+          <Route exact path="/verifyaccount" element={<Verifyaccount />}/>
+
           <Route exact path="/reset" element={<Reset />}/>
           //this part to be precise
           

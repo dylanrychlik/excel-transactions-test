@@ -56,9 +56,9 @@ function Form(props) {
         );
     };
     const [allValues, setText] = useState({
-        text1: 'Excel Transaction',
-        text2: 'A data manager for your',
-        text3: 'Excel transaction sheet',
+        text1: 'Login Validation System:',
+        text2: 'A react and node js templete',
+        text3: 'of a standard login validation system.',
     });
 
     //axios.defaults.withCredentials = true;
@@ -95,7 +95,7 @@ function Form(props) {
 
    
         useEffect(() => {
-          axios.get("https://excel-transaction-test.herokuapp.com/login")
+          axios.get("http://login_validation_rychlik.com:3001/login")
             .then((res) => {
               console.log(res);
             })
@@ -104,32 +104,33 @@ function Form(props) {
         }, []);
     
       
-        axios.post("https://excel-transaction-test.herokuapp.com/login", userData)
-            .then(function (response) {
+        const handleSubmit = (event) => {
+            event.preventDefault(); // Prevent default form submission behavior
+    
+             const user = {
+                  username: username,
+                  password: password
+             };
+    
+            axios.post("http://login_validation_rychlik.com:3001/login", user)
+                .then(function (response) {
+                    console.log('Authentication data: ', response.data);
+                    if (response.data === 'login successful') {
+                        alert('Login successful');
+                        window.location.replace("http://login_validation_rychlik.com:3000/landing");
 
-                console.log('Authentication data.' + response.data);
-                if (response.data === 'login successful') {
-                    alert('login successful');
-                    window.location.replace("https://excel-transaction-test.herokuapp.com/landing");
-                
-                } else if (response.data === 'Invalid username or password') {
-                    alert('Invalid username or password.');
+                        // Redirect or perform any necessary action upon successful login
+                    } else if (response.data === 'Invalid username or password') {
+                        alert('Invalid username or password.');
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error: ", error);
+                    console.log("Boo: ", user);
 
-                }
-
-                return response.data;
-            })
-
-            .catch((error) => {
-                if (error.response) {
-                    console.log(error.response);
-                    console.log("server responded");
-                } else if (error.request) {
-                    console.log("network error");
-                } else {
-                    console.log(error);
-                }
-            });
+                    // Handle error appropriately
+                });
+        };
     
 
 
@@ -187,7 +188,7 @@ function Form(props) {
 
                 <div className="login">
                     <form style={formStyle} onSubmit={handleSubmit} to="/landing">
-                        <label style={labelStyle} htmlFor="username">Username: </label>
+                        <label style={labelStyle} htmlFor="username">Email: </label>
 
                         <input style={inputStyle}
                             type="text"
@@ -223,7 +224,7 @@ function Form(props) {
                                     to="/register"
                                     element={<Register />}
                                 >
-                                    <h4>New to Excel transactions? Sign up here</h4>
+                                    <h4>New to Login Validation? Sign up here</h4>
                                 </NavLink>
 
                                 <NavLink

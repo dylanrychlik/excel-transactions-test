@@ -13,7 +13,7 @@ function VerifyForgot({ onSubmit }) {
 
         <div className="VerifyForgot">
             <div>
-                <h1>Please check your email to verify your account</h1>
+                <h1>Password successfully update. Feel free to close this page.</h1>
             </div>
            
 

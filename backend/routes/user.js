@@ -9,13 +9,12 @@ var verify = Math.floor((Math.random() * 10000000) + 1);
 
 // email connection
 
-var transporter = nodemailer.createTransport({
+// Create a Nodemailer transporter using SMTP
+let transporter = nodemailer.createTransport({
    service: 'gmail',
-  
- auth: {
-      user: 'dylanrychlik@gmail.com',
-      pass: 'ekrxgvynsmfccjcv'
-   }
+   auth: {
+       user: 'dylanrychlik@gmail.com',
+       pass: 'olrz sucp ohrv ckwm'   }
 });
 // cookie parser
 app.use(cookieParser());
@@ -37,16 +36,21 @@ var verification = verify;
 
 exports.verify = function (req, res) {
    var email = 'dylanrychlik@gmail.com';//'req.body.email';
-   var connection = mysql.createConnection({
-      host: "cloud19.hostgator.com",
-      user: "uzaqleuw_root",
-      password: "3Hotdogs!"
+    //var verification = post.verification;
+    var connection = mysql.createConnection({
+      host: '50.6.160.15',
+      user: 'cwzxvqte_root',
+      password: 'Spiderman420!',
+      database: 'cwzxvqte_login_validation',
+      port: 3306,
+
     });
+
     
 
  
    
-      var sqlText  = "SELECT ID, VERIFICATION FROM uzaqleuw_Simpledatabase.Accounts WHERE EMAIL = ?";
+      var sqlText  = "SELECT ID, VERIFICATION FROM cwzxvqte_login_validation.Accounts WHERE EMAIL = ?";
       connection.connect(function(err) {
          if (err) {throw err;}
          else {
@@ -69,7 +73,7 @@ exports.verify = function (req, res) {
    console.log("verification", verify);
    if (verification == verify) {
      
-        var sqlText = "UPDATE uzaqleuw_Simpledatabase.Accounts SET VERIFICATION =" + verification;
+        var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET VERIFICATION =" + verification;
        
          connection.query(sqlText, function (err, result) {
            if (err) {throw err;}else {
@@ -93,13 +97,20 @@ var email;
 exports.signup = function (req, res) {
    message = '';
    if (req.method == "POST") {
+      console.log('Turtle tester who is a sped',req.body.email);
 
-      //var verification = post.verification;
+
+   
+   //var verification = post.verification;
    var connection = mysql.createConnection({
-      host: "cloud19.hostgator.com",
-      user: "uzaqleuw_root",
-      password: "3Hotdogs!"
+      host: '50.6.160.15',
+      user: 'cwzxvqte_root',
+      password: 'Spiderman420!',
+      database: 'cwzxvqte_login_validation',
+      port: 3306,
+
     });
+
  
 
 
@@ -118,7 +129,7 @@ exports.signup = function (req, res) {
       var lname = post.lastname;
       console.log('Turtle tester who is getting fired tomorrow',req.body);
        email = post.email;
-       var sqlText = "INSERT INTO uzaqleuw_Simpledatabase.Accounts(ID, FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('','" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');";
+       var sqlText = "INSERT INTO cwzxvqte_login_validation.Accounts(FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');";
       //var verification = post.verify;
       connection.connect(function(err) {
          if (err) throw err;
@@ -144,8 +155,8 @@ exports.signup = function (req, res) {
        });
       }
    else {
-      res.render('signup');
-   }
+      res.send('Registration successful');
+      }
 };
 //Forgot password 
 exports.forgot = function (req, res) {
@@ -197,11 +208,16 @@ exports.reset = function (req, res) {
    message = '';
    if (req.method == "POST") {
       //var verification = post.verification;
-      var connection = mysql.createConnection({
-         host: "cloud19.hostgator.com",
-         user: "uzaqleuw_root",
-         password: "3Hotdogs!"
-       });
+     //var verification = post.verification;
+     var connection = mysql.createConnection({
+      host: '50.6.160.15',
+      user: 'cwzxvqte_root',
+      password: 'Spiderman420!',
+      database: 'cwzxvqte_login_validation',
+      port: 3306,
+
+    });
+
 
       var post = req.body;
       console.log('Turtle tester who is getting fired',req.body);
@@ -218,7 +234,7 @@ exports.reset = function (req, res) {
    
 
          //sqlText: "INSERT INTO MAHITIX.PUBLIC.ACCOUNTS(ID, FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('2','" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');",
-        var sqlText = "UPDATE uzaqleuw_Simpledatabase.Accounts SET PASSWORD = '" + pass + "' WHERE EMAIL = '" + email + "';";
+        var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET PASSWORD = '" + pass + "' WHERE EMAIL = '" + email + "';";
         connection.connect(function(err) {
          if (err) throw err;
          console.log("Connected! Reset!");
@@ -273,11 +289,15 @@ exports.login = function (req, res) {
       var Email = post.username;
       var Pass = post.password;
       console.log('Tester who is getting fired on Monday: ',Email,Pass);
-      var connection = mysql.createConnection({
-         host: "cloud19.hostgator.com",
-         user: "uzaqleuw_root",
-         password: "3Hotdogs!"
-       });
+      //var verification = post.verification;
+    var connection = mysql.createConnection({
+      host: '50.6.160.15',
+      user: 'cwzxvqte_root',
+      password: 'Spiderman420!',
+      database: 'cwzxvqte_login_validation',
+      port: 3306,
+
+    });
 
       connection.connect(
          function (err, conn) {
@@ -293,7 +313,7 @@ exports.login = function (req, res) {
       );
 
   
-        var sqlText = "select ID,email,password from uzaqleuw_Simpledatabase.Accounts WHERE email = ? AND password = ?;";
+        var sqlText = "select ID,email,password from cwzxvqte_login_validation.Accounts WHERE email = ? AND password = ?;";
         connection.query(sqlText, [Email,Pass], function (err, result) {
          if (err) {throw err;}
          else {
@@ -335,12 +355,15 @@ exports.dashboard = function (req, res, next) {
      // res.redirect("/login");
       return;
    }
-   var connection = mysql.createConnection({
-      host: "cloud19.hostgator.com",
-      user: "uzaqleuw_root",
-      password: "3Hotdogs!"
-    });
-    
+ //var verification = post.verification;
+ var connection = mysql.createConnection({
+   host: '50.6.160.15',
+   user: 'cwzxvqte_root',
+   password: 'Spiderman420!',
+   database: 'cwzxvqte_login_validation',
+   port: 3306,
+
+ });
 
    connection.connect(
       function (err, conn) {
@@ -354,7 +377,7 @@ exports.dashboard = function (req, res, next) {
          }
       }
    );
-   var sql = "select *  from uzaqleuw_Simpledatabase.Accounts where ID='" + userID + "'";
+   var sql = "select * from cwzxvqte_login_validation.Accounts where ID='" + userID + "'";
   // sqlText: "select *  from uzaqleuw_Simpledatabase.ACCOUNTS where ID='" + userID + "'",
    connection.query(sql,function(err) {
          if (err) {
@@ -381,13 +404,15 @@ exports.profile = function (req, res) {
       res.redirect("/login");
       return;
    }
-  var connection = mysql.createConnection( {
-         account: 'zya38129.us-east-1',
-         username: 'DRYCH',
-         password: '3Hotdogs!',
-         database: 'uzaqleuw_Simpledatabase'
-         }
-       );
+ //var verification = post.verification;
+ var connection = mysql.createConnection({
+   host: '50.6.160.15',
+   user: 'cwzxvqte_root',
+   password: 'Spiderman420!',
+   database: 'cwzxvqte_login_validation',
+   port: 3306,
+
+ });
 
    connection.connect(
       function (err, conn) {
@@ -404,7 +429,7 @@ exports.profile = function (req, res) {
 
 
    connection.execute({
-      sqlText: "select *  from SIMPLEDATABASE.PUBLIC.ACCOUNTS where EMAIL='dylanrychlik@gmail.com'",
+      sqlText: "select * from cwzxvqte_login_validation.PUBLIC.ACCOUNTS where EMAIL='dylanrychlik@gmail.com'",
       complete: function (err, stmt, row) {
          if (!err) {
             /*  obj = JSON.parse(JSON.stringify(row[0]));
@@ -454,13 +479,15 @@ exports.editprofile = function (req, res) {
          res.redirect("/login");
          return;
       }
-    var connection = mysql.createConnection( {
-         account: 'zya38129.us-east-1',
-         username: 'DRYCH',
-         password: '3Hotdogs!',
-         database: 'MAHITIX'
-         }
-       );
+    //var verification = post.verification;
+    var connection = mysql.createConnection({
+      host: '50.6.160.15',
+      user: 'cwzxvqte_root',
+      password: 'Spiderman420!',
+      database: 'cwzxvqte_login_validation',
+      port: 3306,
+
+    });
 
       connection.connect(
          function (err, conn) {
@@ -477,7 +504,7 @@ exports.editprofile = function (req, res) {
 
 
       connection.execute({
-         sqlText: "UPDATE MAHITIX.PUBLIC.ACCOUNTS SET FIRST_NAME =" + "'" +fname+ "'" + ", LAST_NAME = " + "'" + lname+ "'" + ", USER_NAME = " + "'" + name + "'" + ", PASSWORD = " + "'" + pass + "'" + " WHERE EMAIL = 'dylanrychlik@gmail.com'",
+         sqlText: "UPDATE cwzxvqte_login_validation.PUBLIC.ACCOUNTS SET FIRST_NAME =" + "'" +fname+ "'" + ", LAST_NAME = " + "'" + lname+ "'" + ", USER_NAME = " + "'" + name + "'" + ", PASSWORD = " + "'" + pass + "'" + " WHERE EMAIL = 'dylanrychlik@gmail.com'",
          // UPDATE MAHITIX.PUBLIC.ACCOUNTS SET FIRST_NAME = 'John', LAST_NAME = 'Smith', USER_NAME = 'Jsmith365', PASSWORD = '3Hotdogs' WHERE EMAIL = 'dylanrychlik@gmail.com';
          complete: function (err, stmt, row) {
             if (err) {
@@ -493,3 +520,4 @@ exports.editprofile = function (req, res) {
       res.redirect('/home/dashboard');
    }
 };
+
