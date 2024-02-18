@@ -112,12 +112,12 @@ function Form(props) {
                   password: password
              };
     
-            axios.post("https://http-login-validation-rychlik.onrender.com//login", user)
+            axios.post("https://http-login-validation-rychlik.onrender.com/login", user)
                 .then(function (response) {
                     console.log('Authentication data: ', response.data);
                     if (response.data === 'login successful') {
                         alert('Login successful');
-                        window.location.replace("https://http-login-validation-rychlik.onrender.com//landing");
+                        window.location.replace("https://http-login-validation-rychlik.onrender.com/landing");
 
                         // Redirect or perform any necessary action upon successful login
                     } else if (response.data === 'Invalid username or password') {
