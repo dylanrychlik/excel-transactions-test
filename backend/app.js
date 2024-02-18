@@ -61,12 +61,12 @@ connection.connect(
 
 // all environments
 const PORT = process.env.PORT || '3001'
-// Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, '../client')));
+// Serve static files from the React client build directory
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-// Handle React Router
+// Fallback route for all other routes - serve the index.html file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 // app.use(express.static(path.join(__dirname, 'public')));
