@@ -95,7 +95,7 @@ function Form(props) {
 
    
         useEffect(() => {
-          axios.get("https://login-validation-rychlik.onrender.com:3001/login")
+          axios.get("http://http-login-validation-rychlik.com:3306/login")
             .then((res) => {
               console.log(res);
             })
@@ -112,7 +112,7 @@ function Form(props) {
                   password: password
              };
     
-            axios.post("https://http-login-validation-rychlik:3306/login", user)
+            axios.post("https://http-login-validation-rychlik.com:3306/login", user)
                 .then(function (response) {
                     console.log('Authentication data: ', response.data);
                     if (response.data === 'login successful') {
