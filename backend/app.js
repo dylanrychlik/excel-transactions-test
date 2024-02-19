@@ -13,7 +13,7 @@ let bodyParser = require('body-parser');
 
     //var verification = post.verification;
     var connection = mysql.createConnection({
-      host: '52.41.36.82',
+      host: '54.191.253.12',
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
