@@ -100,7 +100,6 @@ exports.signup = function (req, res) {
    if (req.method == "POST") {
       console.log('Turtle tester who is a sped', req.body.email);
 
-      Final_email= req.body.email
 
       //var verification = post.verification;
       var connection = mysql.createConnection({
@@ -161,6 +160,7 @@ exports.signup = function (req, res) {
 };
 //Forgot password 
 exports.forgot = function (req, res) {
+   Final_email= req.body.email
 
    message = '';
    if (req.method == "POST") {
