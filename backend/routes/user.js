@@ -228,7 +228,7 @@ exports.reset = function (req, res) {
 
       var pass = post.confirmpassword;
 
-      var email = req.body.EMAIL;
+      var email = req.body.email;
       let userdata = {
          email: 'dylanrychlik@gmail.com',
 
