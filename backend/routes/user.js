@@ -223,16 +223,22 @@ exports.reset = function (req, res) {
       var post = req.body;
       console.log('Turtle tester who is getting fired', req.body);
 
+      var post = req.body;
+      console.log('Turtle tester who is getting fired',req.body);
+
       var pass = post.confirmpassword;
 
-      var email = req.body.email;
+      var email = 'dylanrychlik@gmail.com';
+      let userdata = {
+         email: 'dylanrychlik@gmail.com',
 
+      }
 
       var verification = post.verify;
 
 
       //sqlText: "INSERT INTO MAHITIX.PUBLIC.ACCOUNTS(ID, FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('2','" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');",
-      var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET PASSWORD = '" + post.confirmpassword + "' WHERE EMAIL = '" + req.body.email + "';";
+      var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET PASSWORD = '" + pass + "' WHERE EMAIL = '" + req.body.email + "';";
       connection.connect(function (err) {
          if (err) throw err;
          console.log("Connected! Reset!");
