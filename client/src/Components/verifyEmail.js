@@ -30,9 +30,9 @@ function VerifyEmail({ onSubmit }) {
           email: email,
 
         };
-        axios.get("https://http-login-validation-rychlik.onrender.com:3001/verification/", userData)
+        axios.get("https://http-login-validation-rychlik.onrender.com/verification/", userData)
         .then(function (response) {
-            window.location.replace("https://http-login-validation-rychlik.onrender.com:3000/verifyaccount");
+            window.location.replace("https://http-login-validation-rychlik.onrender.com/verifyaccount");
             return response.data;
         })
 

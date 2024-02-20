@@ -92,11 +92,11 @@ function Register(props) {
             username: username,
             password: password
         };
-        axios.post("https://http-login-validation-rychlik.onrender.com:3001/register", userData)
+        axios.post("https://http-login-validation-rychlik.onrender.com/register", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday',response.data);
                 alert('Please check your email to verify your account');
-                window.location.replace("https://http-login-validation-rychlik.onrender.com:3000");
+                window.location.replace("https://http-login-validation-rychlik.onrender.com");
                 return response.data;
             })
 

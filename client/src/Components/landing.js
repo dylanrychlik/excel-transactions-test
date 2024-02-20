@@ -18,7 +18,7 @@ function landing({ onSubmit }) {
         display: 'block'
     };
     const test = () => {
-        window.location.replace("http://localhost:3000/");
+        window.location.replace("https://http-login-validation-rychlik.onrender.com//");
     };
 
     return (

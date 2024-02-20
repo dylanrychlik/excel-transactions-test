@@ -98,10 +98,10 @@ function ResetPassword(props) {
 
         };
 
-        axios.post("https://http-login-validation-rychlik.onrender.com:3001/reset", userData)
+        axios.post("https://http-login-validation-rychlik.onrender.com/reset", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday', response.data);
-                window.location.replace("https://http-login-validation-rychlik.onrender.com:3000/");
+                window.location.replace("https://http-login-validation-rychlik.onrender.com/");
                 return response.data;
             })
 

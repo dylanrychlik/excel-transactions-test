@@ -73,11 +73,11 @@ function ForgotPassword(props) {
             email: email,
 
         };
-        axios.post("https://http-login-validation-rychlik.onrender.com:3001/forgot", userData)
+        axios.post("https://http-login-validation-rychlik.onrender.com/forgot", userData)
             .then(function (response) {
                 console.log('Turtle tester who is getting fired Thurday', response.data);
                 alert('Please check your email to verify your account');
-                window.location.replace("https://http-login-validation-rychlik.onrender.com:3000");
+                window.location.replace("https://http-login-validation-rychlik.onrender.com");
                 return response.data;
             })
 

@@ -95,7 +95,7 @@ function Form(props) {
 
    
         useEffect(() => {
-          axios.get("https://http-login-validation-rychlik.onrender.com/:3306/login")
+          axios.get("https://http-login-validation-rychlik.onrender.com/login")
             .then((res) => {
               console.log(res);
             })
