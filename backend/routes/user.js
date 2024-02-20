@@ -35,7 +35,7 @@ var verification = verify;
 // verification 
 
 exports.verify = function (req, res) {
-   //var email = 'dylanrychlik@gmail.com';//'req.body.email';
+   var email = 'dylanrychlik@gmail.com';//'req.body.email';
     //var verification = post.verification;
     var connection = mysql.createConnection({
       host: '50.6.160.15',
@@ -193,7 +193,13 @@ console.log('req.body:',req.body);
    }
 
 };
-
+let userdata = {
+   email: 'dylanrychlik@gmail.com',
+   user_name: '',
+   first_name: '',
+   user_name: '',
+   pass: '',
+}
 
 //Reset 
 // verification 
@@ -216,9 +222,13 @@ exports.reset = function (req, res) {
       var post = req.body;
       console.log('Turtle tester who is getting fired',req.body);
 
-      //var pass = post.confirmpassword;
+      var pass = post.confirmpassword;
 
-     
+      var email = '';
+      let userdata = {
+         email: '',
+
+      }
 
       //var verification = post.verify;
    
