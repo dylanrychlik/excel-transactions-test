@@ -193,13 +193,7 @@ console.log('req.body:',req.body);
    }
 
 };
-let userdata = {
-   email: '',
-   user_name: '',
-   first_name: '',
-   user_name: '',
-   pass: '',
-}
+
 
 //Reset 
 // verification 
