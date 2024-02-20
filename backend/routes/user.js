@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 //Global variable 
 var verify = Math.floor((Math.random() * 10000000) + 1);
+var Final_email = "";
 
 // email connection
 
@@ -93,7 +94,6 @@ exports.verify = function (req, res) {
 
 
 }
-var Final_email = "";
 //---------------------------------------------signup page call------------------------------------------------------
 exports.signup = function (req, res) {
    message = '';
@@ -160,7 +160,7 @@ exports.signup = function (req, res) {
 };
 //Forgot password 
 exports.forgot = function (req, res) {
-   Final_email= req.body.email
+   this.Final_email= req.body.email
 
    message = '';
    if (req.method == "POST") {
@@ -206,7 +206,7 @@ let userdata = {
 // verification 
 
 exports.reset = function (req, res) {
-   console.log('drych the greater tester ' + Final_email)
+   console.log('drych the greater tester ' + this.Final_email)
 
    message = '';
    if (req.method == "POST") {
