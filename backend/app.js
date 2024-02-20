@@ -18,6 +18,8 @@ let bodyParser = require('body-parser');
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
       port: 3306,
+      connectTimeout: 800,0o0:0o0, // 20 seconds timeout for initial connection
+     acquireTimeout: 800,0o0:0o0 // 20 seconds timeout for acquiring a connection from the pool
 
     });
 
