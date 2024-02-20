@@ -56,7 +56,7 @@ function Form(props) {
         );
     };
     const [allValues, setText] = useState({
-        text1: 'Login Validation System:'
+        text1: 'Login Validation System'
     });
 
     //axios.defaults.withCredentials = true;
