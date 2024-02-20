@@ -238,7 +238,7 @@ exports.reset = function (req, res) {
 
 
       //sqlText: "INSERT INTO MAHITIX.PUBLIC.ACCOUNTS(ID, FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('2','" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');",
-      var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET PASSWORD = '" + pass + "' WHERE EMAIL = 'dylanrychlik@gmail.com';";
+      var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET PASSWORD = '" + pass + "' WHERE EMAIL = " + "'"+email+"'";
       connection.connect(function (err) {
          if (err) throw err;
          console.log("Connected! Reset!");
