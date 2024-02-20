@@ -56,9 +56,7 @@ function Form(props) {
         );
     };
     const [allValues, setText] = useState({
-        text1: 'Login Validation System:',
-        text2: 'A react and node js templete',
-        text3: 'of a standard login validation system.',
+        text1: 'Login Validation System:'
     });
 
     //axios.defaults.withCredentials = true;
