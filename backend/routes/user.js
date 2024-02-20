@@ -35,7 +35,7 @@ var verification = verify;
 // verification 
 
 exports.verify = function (req, res) {
-   var email = 'dylanrychlik@gmail.com';//'req.body.email';
+   //var email = 'dylanrychlik@gmail.com';//'req.body.email';
     //var verification = post.verification;
     var connection = mysql.createConnection({
       host: '50.6.160.15',
