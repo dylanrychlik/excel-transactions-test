@@ -12,15 +12,13 @@ const mysql = require('mysql');
 let bodyParser = require('body-parser');
 
     //var verification = post.verification;
-    var connection = mysql.createConnection({
-      host: '50.6.160.15',
+    var connection = mysql.createPool({
+      connectionLimit: 100000, // Adjust this value based on your application's requirements
+       host: '50.6.160.15',
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
-      port: 3306,
-      connectTimeout: 80000, // 20 seconds timeout for initial connection
-     acquireTimeout: 80000  // 20 seconds timeout for acquiring a connection from the pool
-
+      port: 3306
     });
 
 app.use(express.json());
