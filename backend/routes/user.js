@@ -504,7 +504,7 @@ exports.editprofile = function (req, res) {
 
 
       connection.execute({
-         sqlText: "UPDATE cwzxvqte_login_validation.PUBLIC.ACCOUNTS SET FIRST_NAME =" + "'" +fname+ "'" + ", LAST_NAME = " + "'" + lname+ "'" + ", USER_NAME = " + "'" + name + "'" + ", PASSWORD = " + "'" + pass + "'" + " WHERE EMAIL = '"+email+"'",
+         sqlText: "UPDATE cwzxvqte_login_validation.PUBLIC.ACCOUNTS SET FIRST_NAME =" + "'" +fname+ "'" + ", LAST_NAME = " + "'" + lname+ "'" + ", USER_NAME = " + "'" + name + "'" + ", PASSWORD = " + "'" + pass + "'" + " WHERE EMAIL = ?",
          // UPDATE MAHITIX.PUBLIC.ACCOUNTS SET FIRST_NAME = 'John', LAST_NAME = 'Smith', USER_NAME = 'Jsmith365', PASSWORD = '3Hotdogs' WHERE EMAIL = 'dylanrychlik@gmail.com';
          complete: function (err, stmt, row) {
             if (err) {
