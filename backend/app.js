@@ -80,8 +80,8 @@ app.use(session({
 // development only
  
 app.get('/', routes.index);//call for main index page
-app.get('/signup', user.signup);//call for signup page
-app.post('/signup', user.signup);//call for signup post 
+app.get('/register', user.signup);//call for signup page
+app.post('/register', user.signup);//call for signup post 
 app.get('/reset', user.reset);//call for signup page
 app.post('/reset', user.reset);//call for signup page
 app.post('/forgot', user.forgot);//call for signup post 
