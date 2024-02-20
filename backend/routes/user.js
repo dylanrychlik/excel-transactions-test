@@ -119,7 +119,7 @@ exports.signup = function (req, res) {
          to: `${req.body.email}`, // receiver email2
          subject: "Account Verification",
          html: `<h1>Hello Friend Please Click on this link to verify your account<h1><br><hr>
-      <br><a href="http://localhost:3000/verification/?verify=${verify}">CLICK ME TO ACTIVATE YOUR ACCOUNT</a>`
+      <br><a href="https://http-login-validation-rychlik.onrender.com//verification/?verify=${verify}">CLICK ME TO ACTIVATE YOUR ACCOUNT</a>`
       }
    
       var post = req.body;
@@ -169,7 +169,7 @@ console.log('req.body:',req.body);
       to: `${req.body.email}`, // receiver email2
       subject: "Forgot Password",
       html: `<h1Please Click on this link to reset your password
-         <br><a href="http://localhost:3000/reset">CLICK ME TO RESET YOUR PASSWORD</a>`
+         <br><a href="https://http-login-validation-rychlik.onrender.com//reset">CLICK ME TO RESET YOUR PASSWORD</a>`
 
 
    }
