@@ -234,6 +234,7 @@ exports.reset = function (req, res) {
 
       }
 
+      console.log('drych the greater tester ' + req.body.email)
       var verification = post.verify;
 
 
