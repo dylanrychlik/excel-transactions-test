@@ -82,7 +82,7 @@ function ResetPassword(props) {
         if (newpassword !== confirmpassword){
             alert('Passwords do not match');
         } else {
-            window.location.replace("http://login_validation_rychlik.com/verifyforgot");
+            window.location.replace("http://login-validation-rychlik.com/verifyforgot");
         }
     }
 
