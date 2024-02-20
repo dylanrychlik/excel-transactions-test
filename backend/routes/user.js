@@ -206,6 +206,8 @@ let userdata = {
 // verification 
 
 exports.reset = function (req, res) {
+   console.log('drych the greater tester ' + req.body.email)
+
    message = '';
    if (req.method == "POST") {
       //var verification = post.verification;
@@ -220,21 +222,15 @@ exports.reset = function (req, res) {
       });
 
 
-      var post = req.body;
-      console.log('Turtle tester who is getting fired', req.body);
 
-      var post = req.body;
-      console.log('Turtle tester who is getting fired',req.body);
 
       var pass = post.confirmpassword;
 
-      var email = req.body.username;
       let userdata = {
          email: 'dylanrychlik@gmail.com',
 
       }
 
-      console.log('drych the greater tester ' + req.body.email)
       var verification = post.verify;
 
 
