@@ -48,7 +48,7 @@ app.use(
 //This attempts the connection.
 // Middleware for acquiring a connection from the pool before each request
 app.use((req, res, next) => {
-  pool.getConnection((err, connection) => {
+  connection.getConnection((err, connection) => {
     if (err) {
       // Handle connection errors
       return next(err);
