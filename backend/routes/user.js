@@ -178,9 +178,9 @@ console.log('req.body:',req.body);
          console.log(error)
       } else {
 
-         let userdata = {
-            email: 'dylanrychlik@gmail.com',
-         }
+         // let userdata = {
+         //    email: 'dylanrychlik@gmail.com',
+         // }
          res.cookie("UserInfo", userdata);
          res.send("Please check your email to reset your password")
       }
