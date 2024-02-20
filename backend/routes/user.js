@@ -249,8 +249,7 @@ exports.reset = function (req, res) {
 
                console.log('Data Successfully updated');
 
-               console.log(email);
-               console.log(pass);
+              
                // res.render('index');
             }
          });
