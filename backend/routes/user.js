@@ -93,14 +93,14 @@ exports.verify = function (req, res) {
 
 
 }
-var email;
+var Final_email = "";
 //---------------------------------------------signup page call------------------------------------------------------
 exports.signup = function (req, res) {
    message = '';
    if (req.method == "POST") {
       console.log('Turtle tester who is a sped', req.body.email);
 
-
+      Final_email= req.body.email
 
       //var verification = post.verification;
       var connection = mysql.createConnection({
@@ -206,7 +206,7 @@ let userdata = {
 // verification 
 
 exports.reset = function (req, res) {
-   console.log('drych the greater tester ' + req.body.Email)
+   console.log('drych the greater tester ' + Final_email)
 
    message = '';
    if (req.method == "POST") {
