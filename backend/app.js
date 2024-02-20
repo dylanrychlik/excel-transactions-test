@@ -46,18 +46,27 @@ app.use(
 //app.use(bodyParser.staticProvider(__dirname + '/public'));
 
 //This attempts the connection.
-connection.connect(
-  function (err, conn) {
+// Middleware for acquiring a connection from the pool before each request
+app.use((req, res, next) => {
+  pool.getConnection((err, connection) => {
     if (err) {
-      console.error('Unable to connect: ' + err.message);
+      // Handle connection errors
+      return next(err);
     }
-    else {
-      console.log('Successfully connected to mysql  test account.');
-      // Optional: store the connection ID.
-      // connection_ID = connection.getId();
-    }
+    // Attach the connection to the request object
+    req.dbConnection = connection;
+    next();
+  });
+});
+
+// Handle releasing the connection back to the pool after each request
+app.use((req, res, next) => {
+  if (!req.dbConnection) {
+    return next();
   }
-);
+  req.dbConnection.release();
+  next();
+});
 
 // all environments
 const PORT = process.env.PORT || '3001'
