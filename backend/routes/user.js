@@ -206,7 +206,7 @@ let userdata = {
 // verification 
 
 exports.reset = function (req, res) {
-   console.log('drych the greater tester ' + req.body.email)
+   console.log('drych the greater tester ' + req.body.Email)
 
    message = '';
    if (req.method == "POST") {
