@@ -216,7 +216,7 @@ exports.reset = function (req, res) {
       var post = req.body;
       console.log('Turtle tester who is getting fired',req.body);
 
-      var pass = post.confirmpassword;
+      //var pass = post.confirmpassword;
 
      
 
