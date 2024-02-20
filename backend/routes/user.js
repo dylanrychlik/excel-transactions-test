@@ -224,7 +224,7 @@ exports.reset = function (req, res) {
 
 
 
-      var pass = req.confirmpassword;
+      var pass = req.password;
       console.log("Super troopers: " + pass)
 
 
