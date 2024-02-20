@@ -230,6 +230,7 @@ exports.reset = function (req, res) {
          email: 'dylanrychlik@gmail.com',
 
       }
+      console.log("Super troopers: " + pass)
 
       var verification = post.verify;
 
