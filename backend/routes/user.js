@@ -224,18 +224,18 @@ exports.reset = function (req, res) {
 
 
 
-      var pass = post.confirmpassword;
+      var pass = req.confirmpassword;
+      console.log("Super troopers: " + pass)
+
 
       let userdata = {
          email: 'dylanrychlik@gmail.com',
 
       }
-      console.log("Super troopers: " + pass)
 
       var verification = post.verify;
 
 
-      //sqlText: "INSERT INTO MAHITIX.PUBLIC.ACCOUNTS(ID, FIRST_NAME,LAST_NAME,EMAIL,USER_NAME, PASSWORD,VERIFICATION) VALUES ('2','" + fname + "','" + lname + "','" + email + "','" + name + "','" + pass + "','" + verify + "');",
       var sqlText = "UPDATE cwzxvqte_login_validation.Accounts SET PASSWORD = '" + pass + "' WHERE EMAIL = '"+ this.Final_email+"'";
       connection.connect(function (err) {
          if (err) throw err;
