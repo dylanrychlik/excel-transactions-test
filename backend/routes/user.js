@@ -224,9 +224,11 @@ exports.reset = function (req, res) {
 
 
 
-      var pass = req.password;
-      console.log("Super troopers: " + pass)
+      var post = req.body;
 
+      var pass = post.confirmpassword;
+
+      console.log('Super Troopers',pass);
 
       let userdata = {
          email: 'dylanrychlik@gmail.com',
