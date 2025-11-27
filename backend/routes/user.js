@@ -44,7 +44,7 @@ exports.verify = function (req, res) {
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
-      port: 3306,
+      port: 2083,
 
    });
 
@@ -107,7 +107,7 @@ exports.signup = function (req, res) {
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
-         port: 3306,
+         port: 2083,
 
       });
 
@@ -217,7 +217,7 @@ exports.reset = function (req, res) {
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
-         port: 3306,
+         port: 2083,
 
       });
 
@@ -298,7 +298,7 @@ exports.login = function (req, res) {
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
-         port: 3306,
+         port: 2083,
 
       });
 
@@ -364,7 +364,7 @@ exports.dashboard = function (req, res, next) {
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
-      port: 3306,
+      port: 2083,
 
    });
 
@@ -413,7 +413,7 @@ exports.profile = function (req, res) {
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
-      port: 3306,
+      port: 2083,
 
    });
 
@@ -488,7 +488,7 @@ exports.editprofile = function (req, res) {
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
-         port: 3306,
+         port: 2083,
 
       });
 
