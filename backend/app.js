@@ -14,7 +14,7 @@ let bodyParser = require('body-parser');
     //var verification = post.verification;
     var connection = mysql.createPool({
       connectionLimit: 100000, // Adjust this value based on your application's requirements
-       host: '50.6.160.15',
+       host: '74-220-50-254',
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
