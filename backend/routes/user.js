@@ -40,7 +40,7 @@ exports.verify = function (req, res) {
    var email = 'dylanrychlik@gmail.com';//'req.body.email';
    //var verification = post.verification;
    var connection = mysql.createConnection({
-      host: '50.6.160.15',
+      host: '74-220-50-254',
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
@@ -103,7 +103,7 @@ exports.signup = function (req, res) {
 
       //var verification = post.verification;
       var connection = mysql.createConnection({
-         host: '50.6.160.15',
+         host: '74-220-50-254',
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
@@ -213,7 +213,7 @@ exports.reset = function (req, res) {
       //var verification = post.verification;
       //var verification = post.verification;
       var connection = mysql.createConnection({
-         host: '50.6.160.15',
+         host: '74-220-50-254',
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
@@ -294,7 +294,7 @@ exports.login = function (req, res) {
       console.log('Tester who is getting fired on Monday: ', Email, Pass);
       //var verification = post.verification;
       var connection = mysql.createConnection({
-         host: '50.6.160.15',
+         host: '74-220-50-254',
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
@@ -360,7 +360,7 @@ exports.dashboard = function (req, res, next) {
    }
    //var verification = post.verification;
    var connection = mysql.createConnection({
-      host: '50.6.160.15',
+      host: '74-220-50-254',
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
@@ -409,7 +409,7 @@ exports.profile = function (req, res) {
    }
    //var verification = post.verification;
    var connection = mysql.createConnection({
-      host: '50.6.160.15',
+      host: '74-220-50-254',
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
@@ -484,7 +484,7 @@ exports.editprofile = function (req, res) {
       }
       //var verification = post.verification;
       var connection = mysql.createConnection({
-         host: '50.6.160.15',
+         host: '74-220-50-254',
          user: 'cwzxvqte_root',
          password: 'Spiderman420!',
          database: 'cwzxvqte_login_validation',
