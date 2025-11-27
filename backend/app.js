@@ -18,7 +18,7 @@ let bodyParser = require('body-parser');
       user: 'cwzxvqte_root',
       password: 'Spiderman420!',
       database: 'cwzxvqte_login_validation',
-      port: 3306
+      port: 2083
     });
 
 app.use(express.json());
